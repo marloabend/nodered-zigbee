@@ -1,6 +1,6 @@
-.PHONY: dev down start-nodered stop-nodered update-nodered dirfix-nodered groupfix-deconz
+.PHONY: up down start-nodered stop-nodered start-deconz stop-deconz dirfix-nodered update-nodered
 
-dev: down
+up: down
 	@docker-compose up
 
 down:
@@ -12,15 +12,18 @@ start-nodered:
 stop-nodered:
 	@docker-compose stop node-red
 
+start-deconz:
+	@docker-compose start deconz
+
+stop-deconz:
+	@docker-compose stop deconz
+
+dirfix-nodered:
+	sudo chown -R 1000:1000 ./data/nodered
+
 update-nodered:
 	cp -r ./data/nodered ./data/nodered_backup
 	docker-compose pull node-red
 	docker-compose stop node-red
 	docker-compose rm -f node-red
 	docker-compose up -d node-red
-
-dirfix-nodered:
-	sudo chown -R 1000:1000 ./data/nodered
-
-groupfix-deconz:
-	sudo usermod -a -G dialout $USER

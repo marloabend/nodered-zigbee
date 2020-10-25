@@ -18,3 +18,6 @@ update-nodered:
 	docker-compose stop node-red
 	docker-compose rm -f node-red
 	docker-compose up -d node-red
+
+dirfix:
+	sudo chown -R 1000:1000 ./data/nodered

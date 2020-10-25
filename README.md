@@ -2,13 +2,17 @@
 
 ## Prequisites
 
+In some cases you need to add the current user to the `dialout` group
+
+`sudo usermod -aG dialout $USER`
+
 ### Configuring Raspbian for RaspBee
 
-Raspbian defaults Bluetooth to ``/dev/ttyAMA0`` and configures a login shell over serial (tty). You must disable the tty login shell and enable the serial port hardware, and swap Bluetooth to ``/dev/S0``, to allow RaspBee to work properly under Docker.
+Raspbian defaults Bluetooth to `/dev/ttyAMA0` and configures a login shell over serial (tty). You must disable the tty login shell and enable the serial port hardware, and swap Bluetooth to `/dev/S0`, to allow RaspBee to work properly under Docker.
 
 #### To disable the login shell over serial and enable the serial port hardware:
 
-``sudo raspi-config``
+`sudo raspi-config`
 
 Interfacing Options > Serial
 

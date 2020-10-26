@@ -19,6 +19,7 @@ stop-deconz:
 	@docker-compose stop deconz
 
 dirfix-nodered:
+	-mkdir ./node-red/data
 	sudo chown -R 1000:1000 ./node-red/data
 
 update-nodered:

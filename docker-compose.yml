@@ -7,7 +7,7 @@ services:
     ports:
       - '1880:1880'
     volumes:
-      - ./data/nodered:/data
+      - ./node-red/data:/data
     restart: always
 
   deconz:
@@ -15,7 +15,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - ./data/deconz:/root/.local/share/dresden-elektronik/deCONZ
+      - ./deconz/data:/root/.local/share/dresden-elektronik/deCONZ
     devices:
       - /dev/ttyAMA0
     environment:
